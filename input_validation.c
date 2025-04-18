@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 06:21:30 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/18 11:12:54 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:37:31 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	has_duplicates(t_stack *stack)
 
 /**
  * Checks if the stack is already sorted in ascending order
- * When stack is populated in reverse order from args, we check for descending
  */
 int	is_sorted(t_stack *stack)
 {
@@ -66,7 +65,7 @@ int	is_sorted(t_stack *stack)
 	i = 0;
 	while (i < stack->top)
 	{
-		if (stack->array[i] < stack->array[i + 1])
+		if (stack->array[i] > stack->array[i + 1])
 			return (0);
 		i++;
 	}
