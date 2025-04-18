@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   stack_initialization.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 06:16:46 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/18 06:17:24 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:12:54 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,21 @@
 int	init_stack(int ac, char **av, t_stack *stack_a, t_stack *stack_b)
 {
 	int	error;
+	int	i;
 
 	if (ac < 2)
 		return (0);
 	stack_a->top = -1;
 	stack_b->top = -1;
-	ac--;
-	while (ac > 0)
+	i = 1;
+	while (i < ac)
 	{
-		if (!is_number(av[ac]))
+		if (!is_number(av[i]))
 			return (0);
-		stack_a->array[++stack_a->top] = ft_atoi_secure(av[ac], &error);
+		stack_a->array[++stack_a->top] = ft_atoi_secure(av[i], &error);
 		if (error)
 			return (0);
-		ac--;
+		i++;
 	}
 	if (has_duplicates(stack_a))
 		return (0);
@@ -44,8 +45,12 @@ int	init_stack(int ac, char **av, t_stack *stack_a, t_stack *stack_b)
  */
 void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 {
-	free(stack_a->array);
-	free(stack_a);
-	free(stack_b->array);
-	free(stack_b);
+	if (stack_a && stack_a->array)
+		free(stack_a->array);
+	if (stack_a)
+		free(stack_a);
+	if (stack_b && stack_b->array)
+		free(stack_b->array);
+	if (stack_b)
+		free(stack_b);
 }

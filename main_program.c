@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_program.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 06:00:38 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/18 09:08:42 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:12:54 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int	main(int ac, char **av)
 		free_stacks(stack_a, stack_b);
 		print_error();
 	}
-	sort(stack_a, stack_b);
+	if (!is_sorted(stack_a))
+		sort(stack_a, stack_b);
 	free_stacks(stack_a, stack_b);
 	return (0);
 }
