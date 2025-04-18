@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sorting_algorithms.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 06:18:56 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/18 09:08:42 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/19 00:14:25 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
  */
 void	sort_two(t_stack *stack)
 {
-	if (stack->top < 1)
-		return ;
 	if (stack->array[0] < stack->array[1])
 		swap_a(stack);
 }
@@ -32,8 +30,6 @@ void	sort_three(t_stack *stack)
 	int	b;
 	int	c;
 
-	if (stack->top < 2)
-		return ;
 	a = stack->array[stack->top];
 	b = stack->array[stack->top - 1];
 	c = stack->array[stack->top - 2];
@@ -95,10 +91,10 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 		j = 0;
 		while (j < size)
 		{
-			if (get_bit_at_position(stack_a->array[stack_a->top], i))
-				rotate_a(stack_a);
-			else
+			if (get_bit_at_position(stack_a->array[stack_a->top], i) )
 				push_b(stack_a, stack_b);
+			else
+				rotate_a(stack_a);
 			j++;
 		}
 		while (stack_b->top >= 0)
@@ -113,8 +109,6 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
  */
 void	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	if (is_sorted(stack_a))
-		return ;
 	assign_ranks(stack_a);
 	if (stack_a->top == 1)
 		sort_two(stack_a);

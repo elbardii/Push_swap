@@ -6,12 +6,12 @@
 #    By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/18 06:00:00 by isel-bar          #+#    #+#              #
-#    Updated: 2025/04/18 09:49:49 by isel-bar         ###   ########.fr        #
+#    Updated: 2025/04/18 18:31:13 by isel-bar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = push_swap
 
