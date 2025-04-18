@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 06:02:43 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/18 09:08:42 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:49:02 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		init_stack(int ac, char **av, t_stack *stack_a, t_stack *stack_b);
 int		is_number(char *str);
 int		has_duplicates(t_stack *stack);
 int		is_sorted(t_stack *stack);
-int		ft_atoi_secure(char *str, int *error);
+int		ft_atoi(char *str, int *error);
 int		print_error(void);
 void	free_stacks(t_stack *stack_a, t_stack *stack_b);
 

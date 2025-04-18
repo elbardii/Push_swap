@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 06:16:46 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/18 11:12:54 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:49:44 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	init_stack(int ac, char **av, t_stack *stack_a, t_stack *stack_b)
 	{
 		if (!is_number(av[i]))
 			return (0);
-		stack_a->array[++stack_a->top] = ft_atoi_secure(av[i], &error);
+		stack_a->array[++stack_a->top] = ft_atoi(av[i], &error);
 		if (error)
 			return (0);
 		i++;

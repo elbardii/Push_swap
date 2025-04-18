@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 06:21:30 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/18 11:37:31 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/18 11:49:21 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	is_sorted(t_stack *stack)
 /**
  * Converts string to integer with overflow checking
  */
-int	ft_atoi_secure(char *str, int *error)
+int	ft_atoi(char *str, int *error)
 {
 	long	result;
 	int		sign;
