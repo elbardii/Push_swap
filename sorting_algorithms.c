@@ -6,7 +6,7 @@
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 06:18:56 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/19 00:14:25 by isel-bar         ###   ########.fr       */
+/*   Updated: 2025/04/19 11:33:43 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 		j = 0;
 		while (j < size)
 		{
-			if (get_bit_at_position(stack_a->array[stack_a->top], i) )
+			if (get_bit_at_position(stack_a->array[stack_a->top], i))
 				push_b(stack_a, stack_b);
 			else
 				rotate_a(stack_a);
