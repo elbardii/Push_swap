@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_validation.c                                 :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 06:21:30 by isel-bar          #+#    #+#             */
-/*   Updated: 2025/04/19 11:28:42 by isel-bar         ###   ########.fr       */
+/*   Created: 2025/03/20 06:00:38 by isel-bar          #+#    #+#             */
+/*   Updated: 2025/05/18 17:14:09 by isel-bar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/**
- * Validates if a string contains only a valid integer representation
- */
+/*
+** Checks if the string is a valid number
+** @param str String to check
+** @return 1 if it's a valid number, 0 if not
+*/
 int	is_number(char *str)
 {
 	if (!str || !*str)
@@ -32,9 +34,11 @@ int	is_number(char *str)
 	return (1);
 }
 
-/**
- * Checks if there are any duplicate values in the stack
- */
+/*
+** Checks for duplicate values in the stack
+** @param stack Stack to check
+** @return 1 if duplicates found, 0 if not
+*/
 int	has_duplicates(t_stack *stack)
 {
 	int	i;
@@ -46,7 +50,7 @@ int	has_duplicates(t_stack *stack)
 		j = i + 1;
 		while (j <= stack->top)
 		{
-			if (stack->array[i] == stack->array[j])
+			if (stack->values[i] == stack->values[j])
 				return (1);
 			j++;
 		}
@@ -55,9 +59,11 @@ int	has_duplicates(t_stack *stack)
 	return (0);
 }
 
-/**
- * Checks if the stack is already sorted in ascending order
- */
+/*
+** Checks if the stack is already sorted (descending order)
+** @param stack Stack to check
+** @return 1 if sorted, 0 if not
+*/
 int	is_sorted(t_stack *stack)
 {
 	int	i;
@@ -65,17 +71,20 @@ int	is_sorted(t_stack *stack)
 	i = 0;
 	while (i < stack->top)
 	{
-		if (stack->array[i] > stack->array[i + 1])
+		if (stack->values[i] < stack->values[i + 1])
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-/**
- * Converts string to integer with overflow checking
- */
-int	ft_atoi(char *str, int *error)
+/*
+** Converts string to integer with error checking
+** @param str String to convert
+** @param error Pointer to error flag
+** @return The integer value
+*/
+int	safe_atoi(char *str, int *error)
 {
 	long	result;
 	int		sign;
@@ -92,8 +101,8 @@ int	ft_atoi(char *str, int *error)
 	while (*str)
 	{
 		result = result * 10 + (*str - '0');
-		if ((sign == 1 && result > 2147483647)
-			|| (sign == -1 && result > 2147483648))
+		if ((sign == 1 && result > 2147483647) || (sign == -1
+				&& result > 2147483648))
 		{
 			*error = 1;
 			return (0);
@@ -103,10 +112,11 @@ int	ft_atoi(char *str, int *error)
 	return ((int)(result * sign));
 }
 
-/**
- * Prints error message and exits the program
- */
-int	print_error(void)
+/*
+** Prints error message and exits
+** @return Always returns 1
+*/
+int	exit_with_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);

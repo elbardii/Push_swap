@@ -1,49 +1,22 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: isel-bar <isel-bar@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/18 06:00:00 by isel-bar          #+#    #+#              #
-#    Updated: 2025/04/18 18:31:13 by isel-bar         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
+SRCS = initialize_stack.c main.c operations.c \
+       sort.c validation.c utils.c stack_operations.c
 
-SRCS = main_program.c \
-       stack_initialization.c \
-       stack_manipulation.c \
-       sorting_algorithms.c \
-       input_validation.c \
-       stack_element_operations.c \
-       stack_sorting_helpers.c
-
-OBJS = main_program.o \
-       stack_initialization.o \
-       stack_manipulation.o \
-       sorting_algorithms.o \
-       input_validation.o \
-       stack_element_operations.o \
-       stack_sorting_helpers.o
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+		rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
 
